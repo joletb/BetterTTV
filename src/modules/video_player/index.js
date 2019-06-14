@@ -12,7 +12,7 @@ function stepPlaybackSpeed(faster) {
     const currentPlayer = twitch.getCurrentPlayer();
     if (!currentPlayer || !currentPlayer.props.vodID) return;
     const rates = [ 0.25, 0.5, 0.75, 1.0, 1.25, 1.5, 2.0 ];
-    let idx = rates.indexOf(currentPlayer.player.getPlaybackRate());
+    let idx = rates.indexOf(document.getElementsByTagName('video')[0].playbackRate);
     if (idx === -1) return;
     idx += faster ? 1 : -1;
     if (idx < 0 || idx >= rates.length) return;
